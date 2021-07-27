@@ -1,37 +1,35 @@
 package com.binarySearch;
 
-import java.util.Scanner;
-
 public class BinarySerach {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String word[] = new String[10];
-		System.out.println("Enter the word");
-		for (int i = 0; i < word.length; i++) {
-			word[i] = sc.next();
-			System.out.println("Enter the word you want to search");
-			String search = sc.next();
-			int result = binarySearch(word, search);
-			if (result == -1)
-				System.out.println("Element not present");
-			else
-				System.out.println("Element present at " + "index" + result);
-			sc.close();
-		}
-	}
+		String[] word = { "Binary", "search", "program", "practice" };
+		String search = "search";
+		int result = binarySearch(word, search);
+		if (result == -1)
+			System.out.println("Element not present");
+		else
+			System.out.println("Element present at index " + result);
 
+	}
+/*
+ * Purpose : Method to search using Binary search
+ * 
+ * @Param word
+ * 
+ * @Param search
+ */
 	public static int binarySearch(String[] word, String search) {
-		int l = 0, r = word.length - 1;
-		while (l <= r) {
-			int m = l + (r - l) / 2;
-			int result = search.compareTo(word[m]);
+		int first = 0, last = word.length - 1;
+		while (first <= last) {
+			int mid = first + (last - first) / 2;
+			int result = search.compareTo(word[mid]);
 			if (result == 0)
-				return m;
+				return mid;
 			if (result > 0)
-				l = m + 1;
+				first = mid + 1;
 			else
-				r = m - 1;
+				last = mid - 1;
 		}
 		return -1;
 	}
