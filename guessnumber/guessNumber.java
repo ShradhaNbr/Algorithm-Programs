@@ -13,7 +13,12 @@ public class guessNumber {
 		guessNumber(low, high);
 		sc.close();
 	}
-
+/*
+ * Purpose: Method to guess the number
+ * 
+ * @Param low: for starting range
+ * @Param high: for end range
+ */
 	private static void guessNumber(int low, int high) {
 		while (low <= high) {
 			int mid = (low + high )/ 2;
